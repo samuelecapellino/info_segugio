@@ -1,0 +1,27 @@
+/* --- Modalità Chiara (Light Mode) --- */
+button[type="submit"],
+.bg-primary {
+    background-color: hsl(0, 0%, 5%);
+    color: hsl(0, 0%, 100%);
+}
+
+
+button[type="submit"]:hover,
+.bg-primary:hover {
+    background-color: hsl(0, 0%, 25%);
+}
+
+/* --- Modalità Scura (Dark Mode) --- */
+.dark button[type="submit"],
+.dark .bg-primary {
+    background-color: hsl(0, 0%, 100%);
+    /* Bianco puro */
+    color: hsl(0, 0%, 13%);
+
+}
+
+
+.dark button[type="submit"]:hover,
+.dark .bg-primary:hover {
+    background-color: hsl(0, 0%, 85%);
+}
