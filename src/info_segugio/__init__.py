@@ -1,4 +1,4 @@
-import os  # <-- AGGIUNTO: Serve per gestire il sistema operativo
+import os  
 import json
 import chainlit as cl
 from openai import OpenAI
@@ -8,7 +8,7 @@ from tavily import TavilyClient
 
 client = OpenAI(base_url=Config.AI_API_URL, api_key=Config.AI_API_KEY)
 
-# Funzione per interagire con l'AI
+
 def llm(developer_prompt, user_prompt, temperature=0, response_format={"type":"json_object"}):
     response = client.chat.completions.create(
         model = Config.LLM_MODEL_LOW,
@@ -21,7 +21,7 @@ def llm(developer_prompt, user_prompt, temperature=0, response_format={"type":"j
     )
     return response.choices[0].message.content
 
-# Genera una query ottimizzata per la ricerca web
+
 def optimize_search_query(research_topic):
     formatted_instructions = query_writer_instructions.format(research_topic = research_topic)
     result = llm(formatted_instructions, "Genera una query per la ricerca web:")
@@ -37,7 +37,7 @@ Contenuto più rilevante: {result['content']}\n===\n
 """
 
 def web_research(search_query):
-    # CORRETTO: La chiave non è più in chiaro qui, ma viene letta dal Config!
+
     tavily_api_key = Config.TAVILY_API_KEY
     max_results = 1
     include_raw = False
